@@ -1,0 +1,26 @@
+
+	<h1> Articles</h1>
+	<form >
+     	
+ 		<input required type="text" ng-model="newArticle.title" placeholder="Enter a Title"/><br/><br/>
+     	 	<textarea required maxlenght='400' row='3' ng-model="newArticle.text" placeholder="Enter a Article"></textarea><br/><br/>
+		<input type='submit' class='button' value='Post'  ng-click="post()" ng-hide="editMode"/>
+		<input type='submit' class='button' value='Update'  ng-click="update()" ng-show="editMode"/>
+
+	<hr/>
+		
+  	<div id='articles-posted'>
+		<h1> Articles Posted</h1>
+			
+		<div ng-repeat="article in articles | orderBy:'timestamp':true">
+			<h3>{{article.title}} </h3>
+			<p>{{article.text}}</p>
+			<p><small>Posted by : {{article.userName}} at {{article.timestamp |date:"h:mma 'on' MMM d, y"}} </small></p>
+			<input type='submit' class='button' value='Edit' ng-click="edit(article)"  ng-show="isUserOwner(article)" />
+			<input type='submit' class='button' value='Delete' ng-click="del(article)"  ng-show="isUserOwner(article)"  />
+		</div>
+
+	</div>
+    	</form>
+
+

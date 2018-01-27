@@ -1,0 +1,31 @@
+<HTML>
+<Head>
+<title>
+Articles
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-resource.js"></script>
+<script src="javascripts/articleApp.js"></script>
+
+</Head>
+
+<body ng-app="articleApp">
+	<div>
+		<a href="#/!">Articles</a>
+		<a href="#!aboutus">about us</a>
+		<span ng-hide="authenticated">
+			<a href="#!signup">Sign Up</a>
+			<a href="#!signin">Sign In</a>
+		</span>
+		<span ng-show="authenticated">
+			Welcome "{{current_user}}"
+			<a href="#" ng-click="signout()">Sign Out</a>
+		</span>
+	</div>
+  <div ng-view > </div>
+
+</body>
+
+
+</HTML>
